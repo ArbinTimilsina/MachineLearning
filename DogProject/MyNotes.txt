@@ -1,15 +1,19 @@
 ////////////////////////////////////////////////////////////////////////////////
 How to run this project on the AWS
 ////////////////////////////////////////////////////////////////////////////////
+# Instance settings
+AWS Marketplace: Deep Learning AMI with Source Code (CUDA 8, Ubuntu)
+Instance type: p2.xlarge (Filter by: GPU compute)
+
 # SSH into the AWS instance
 ssh -i path/To/myKey.pem ubuntu@Public-DNS(IPv4)
 
 # Clone the repo
 git clone https://github.com/ArbinTimilsina/MachineLearning.git
-cd DogProject
+cd MachineLearning/DogProject
 
 # Download the dog dataset
-wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zi
+wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip
 unzip dogImages.zip
 rm dogImages.zip
 
@@ -21,6 +25,7 @@ rm lfw.zip
 # Download the VGG-16 bottleneck features for the dog dataset
 cd bottleneck_features
 wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/DogVGG16Data.npz
+cd ..
 
 # Install Tensorflow
 sudo python3 -m pip install -r requirements/requirements-gpu.txt
