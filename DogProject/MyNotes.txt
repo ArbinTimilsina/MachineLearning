@@ -1,1 +1,39 @@
-Test
+////////////////////////////////////////////////////////////////////////////////
+How to run this project on the AWS
+////////////////////////////////////////////////////////////////////////////////
+# SSH into the AWS instance
+ssh -i path/To/myKey.pem ubuntu@Public-DNS(IPv4)
+
+# Clone the repo
+git clone https://github.com/ArbinTimilsina/MachineLearning.git
+cd DogProject
+
+# Download the dog dataset
+mkdir dogImages
+cd dogImages
+wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip
+
+# Download the human dataset
+mkdir lfw
+cd lfw
+wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/lfw.zip
+
+# Download the VGG-16 bottleneck features for the dog dataset
+mkdir bottleneck_features
+cd bottleneck_features
+wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/DogVGG16Data.npz
+
+# Install Tensorflow
+sudo python3 -m pip install -r requirements/requirements-gpu.txt
+
+# Switch Keras backend to TensorFlow
+KERAS_BACKEND=tensorflow python -c "from keras import backend"
+
+# Run the Jupyter notebook: First generate config file and then change the IP address config setting
+jupyter notebook --generate-config
+sed -ie "s/#c.NotebookApp.ip = 'localhost'/#c.NotebookApp.ip = '*'/g" ~/.jupyter/jupyter_notebook_config.py
+jupyter notebook --ip=0.0.0.0 --no-browser
+
+# To remember
+Don't git add and commit the dog, human or VGG-16 datasets 
+////////////////////////////////////////////////////////////////////////////////
