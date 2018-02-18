@@ -19,7 +19,6 @@ unzip lfw.zip
 rm lfw.zip
 
 # Download the VGG-16 bottleneck features for the dog dataset
-mkdir bottleneck_features
 cd bottleneck_features
 wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/DogVGG16Data.npz
 
