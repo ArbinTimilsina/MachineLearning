@@ -18,9 +18,14 @@ unzip dogImages.zip
 rm dogImages.zip
 
 # Download the human dataset
-wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/lfw.zip
-unzip lfw.zip
-rm lfw.zip
+wget http://vis-www.cs.umass.edu/lfw/lfw.tgz
+tar -xvzf lfw.tgz
+rm lfw.tgz 
+
+# Alternate for human dataset: it creates __MACOSX dir for mac users
+#wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/lfw.zip
+#unzip lfw.zip
+#rm lfw.zip
 
 # Download the VGG-16 bottleneck features for the dog dataset
 cd bottleneck_features
