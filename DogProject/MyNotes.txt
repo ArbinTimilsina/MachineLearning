@@ -9,14 +9,14 @@ git clone https://github.com/ArbinTimilsina/MachineLearning.git
 cd DogProject
 
 # Download the dog dataset
-mkdir dogImages
-cd dogImages
-wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip
+wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zi
+unzip dogImages.zip
+rm dogImages.zip
 
 # Download the human dataset
-mkdir lfw
-cd lfw
 wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/lfw.zip
+unzip lfw.zip
+rm lfw.zip
 
 # Download the VGG-16 bottleneck features for the dog dataset
 mkdir bottleneck_features
